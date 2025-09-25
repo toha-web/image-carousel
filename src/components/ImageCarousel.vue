@@ -205,6 +205,7 @@ export default {
     }
 
     .selected-images{
+        max-width: 100%;
         padding: 20px 35px;
         margin-bottom: 30px;
         background-color: rgba(255, 255, 255, 0.3);
@@ -212,6 +213,7 @@ export default {
         overflow: hidden;
     }
     .selected-images ol{
+        max-width: 100%;
         columns: 4;
         column-gap: 50px;
     }
