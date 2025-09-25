@@ -15,7 +15,7 @@ export default {
     },
     methods: {
         carouselInitial(){
-            const containerWidth = window.innerWidth - 40;
+            const containerWidth = window.innerWidth;
             let imageWidth = null;
 
             switch (true) {
@@ -39,7 +39,7 @@ export default {
             
             this.imagesPerView = Math.floor(containerWidth / imageWidth) % 2 !== 0 ? Math.floor(containerWidth / imageWidth) : Math.floor(containerWidth / imageWidth) - 1;
 
-            this.forwardImage = Math.floor(this.imagesPerView / 2);
+            this.forwardImage = Math.floor(this.imagesPerView / 2); 
         },
         selectImage(index){
             if(this.selectedImages.includes(this.imagesToShow[index])){
@@ -214,8 +214,10 @@ export default {
     }
     .selected-images ol{
         max-width: 100%;
-        columns: 4;
         column-gap: 50px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
     }
     .selected-images a{
         text-decoration: none;
@@ -224,7 +226,6 @@ export default {
     }
     .selected-images li{
         margin: 5px 0;
-        break-inside: avoid;
     }
 
     .transition-list-enter-active,
@@ -262,9 +263,13 @@ export default {
         .carousel-image{
             width: 240px;
         }
-        .selected-images ol{
-            columns: 3;
+        .selected-images{
+            margin: 10px 20px;
         }
+        .selected-images ol{
+            column-gap: 30px;
+            justify-content: center;
+        } 
     }
     @media all and (max-width: 768px) {
         .carousel-image{
@@ -275,16 +280,10 @@ export default {
         .carousel-image{
             width: 300px;
         }
-        .selected-images ol{
-            columns: 2;
-        }
     }
     @media all and (max-width: 350px) {
         .carousel-image{
             width: 280px;
-        }
-        .selected-images ol{
-            columns: 1;
         }
     }
 </style>
